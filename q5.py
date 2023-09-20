@@ -1,20 +1,31 @@
 c = ""
-s = []
 
+class stack:
 
-def push(st, e):
-    st.append(e)
-    return st
+    st = []
 
-def pop(st):
-    if len(st) == 0:
-        print("underflow :'(")
-    else:
-        print("popped ~_~ item -> " + str(st.__getitem__(len(st)-1)))
-        st.__delitem__(len(st)-1)
-    return st
+    def push(self, e, st):
+        st.append(float(e))
+        return st
+
+    def pop(self,st):
+        if len(st) == 0:
+            print("underflow :'(")
+        else:
+            print("popped ~_~ item -> " + str(st.__getitem__(len(st)-1)))
+            st.__delitem__(len(st)-1)
+        return st
+
+    def print_stack(self,st):
+        if (len(st) == 0):
+            print("empty stack ;-;")
+        else:
+            print("current stack ;)")
+            for i in range(len(st)):
+                print("{0:.4f}".format(st[len(st) - i - 1]))
 
 while True:
+    s = stack()
 
     print("1. push")
     print("2. pop")
@@ -28,26 +39,20 @@ while True:
         print("ok byeeee!!! UwU")
         break
 
-    if c == "push":
+    elif c == "push":
         while True:
             try:
-                f = float(input())
+                s.push(input(),s.st)
             except ValueError:
                 print("Enter a number XD")
                 continue
             break
-        s = push(s,f)
 
     elif c == "pop":
-        s = pop(s)
+        s.pop(s.st)
 
     elif c == "print":
-        if(len(s) == 0):
-            print("empty stack ;-;")
-        else:
-            print("current stack ;)")
-            for i in range(len(s)):
-                print("{0:.4f}".format(s[len(s)-i-1]))
+        s.print_stack(s.st)
 
     else:
         print("Enter a valid input o_o")
