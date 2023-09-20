@@ -10,7 +10,7 @@ def pop(st):
     if len(st) == 0:
         print("underflow :'(")
     else:
-        print("popped item :-> " + str(st.__getitem__(len(st)-1)))
+        print("popped ~_~ item -> " + str(st.__getitem__(len(st)-1)))
         st.__delitem__(len(st)-1)
     return st
 
